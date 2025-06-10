@@ -10,7 +10,6 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
-    bg_img_x = 300
 
     kt_img = pg.image.load("fig/3.png")
     kt_img = pg.transform.flip(kt_img, True, False)
@@ -22,15 +21,14 @@ def main():
             if event.type == pg.QUIT: 
                 return
         
-        bg_rct = bg_img.get_rect()
-        bg_rct.center = bg_img_x, 400
-        screen.blit(bg_img,bg_rct)
+        screen.blit(bg_img, [-tmr, 0])
 
         screen.blit(kt_img, [300, 200])
         pg.display.update()
-        tmr += 1
-        bg_img_x -= 1        
+        tmr += 1        
         clock.tick(200)
+        if (tmr >= 800):
+            screen.blit(bg_img, [-tmr+1600, 0])
 
 
 if __name__ == "__main__":
