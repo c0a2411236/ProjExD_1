@@ -4,6 +4,7 @@ import pygame as pg
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
+#こんにちは
 
 def main():
     pg.display.set_caption("はじめてのPygame")
